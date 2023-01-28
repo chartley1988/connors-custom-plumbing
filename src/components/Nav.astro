@@ -1,0 +1,39 @@
+---
+const navLinks = [
+	{ text: 'About Me', url: 'about-me' },
+	{ text: 'Services', url: 'services' },
+	{ text: 'Testimonials', url: 'testimonials' },
+	{text:'Contact Me', url: 'contact-me'},
+];
+---
+
+<nav>
+	<ul>
+		{
+			navLinks.map((entry) => {
+				return (
+					<a href={entry.url}>
+						<li>{entry.text}</li>
+					</a>
+				);
+			})
+		}
+	</ul>
+</nav>
+
+<style>
+	ul {
+		margin-top: 1rem;
+
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+
+	li {
+		list-style: none;
+		font-family: 'Roboto', sans-serif;
+		font-size: 1.5rem;
+		font-weight: 900;
+	}
+</style>
