@@ -5,14 +5,16 @@ const navLinks = [
 	{ text: 'Testimonials', url: 'testimonials' },
 	{text:'Contact Me', url: 'contact-me'},
 ];
+
+const {title} = Astro.props;
 ---
 
-<nav>
+<nav data-title={title}>
 	<ul>
 		{
 			navLinks.map((entry) => {
 				return (
-					<a href={`/connors-custom-plumbing/${entry.url}`}>
+					<a href={`/connors-custom-plumbing/${entry.url}`} class='nav-button'>
 						<li>{entry.text}</li>
 					</a>
 				);
@@ -22,6 +24,12 @@ const navLinks = [
 </nav>
 
 <style>
+
+    nav {
+        grid-column: 1/3;
+        grid-row: 2/3;
+    }
+
 	ul {
 		margin-top: 1rem;
 
@@ -34,6 +42,45 @@ const navLinks = [
 		list-style: none;
 		font-family: 'Roboto', sans-serif;
 		font-size: 1.5rem;
+	}
+
+	a {
+		padding: 0.5rem;
+		border-radius: 0.5rem;
+		text-decoration: none;
+		color: black;
+	}
+	
+	a:hover {
+		transform: scale(1.05);
 		font-weight: 900;
 	}
+
+	.nav-selected {
+		background-color: rgb(var(--accent), 0.2);
+		transition-duration: 0.3s;
+	}
 </style>
+
+<script>
+	const navBar = document.getElementsByTagName('nav');
+	const pageTitle = navBar[0].dataset.title;
+
+	const navLinks = document.getElementsByTagName('a');
+	
+	switch(pageTitle) {
+		case 'CCM - About Me':
+			navLinks[0].classList.add('nav-selected');
+			break;
+		case 'CCM - Services':
+			navLinks[1].classList.add('nav-selected');;
+			break;
+		case 'CCM - Testimonials':
+			navLinks[2].classList.add('nav-selected');;
+			break;
+		case 'CCM - Contact Me':
+			navLinks[3].classList.add('nav-selected');;
+			break;
+	}
+</script>
+
