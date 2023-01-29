@@ -1,6 +1,42 @@
 ---
+import ContactForm from "../components/ContactForm.astro";
 import Layout from "../layouts/Layout.astro"
 
 ---
 
-<Layout title="CCM - About Me">About Me</Layout>
+<Layout title="CCM - About Me">
+    <div id="wrapper">
+        <h2>About Me</h2>
+        <br>
+        <ContactForm />
+    </div>
+</Layout>
+
+<style>
+    #wrapper {
+        padding: 1rem;
+    }
+    form {
+        padding: 1rem;
+        background-color: rgb(var(--accent),0.1);
+        border: solid 2px black;
+        border-radius: 0.5rem;
+        width:fit-content;
+
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    input {
+        padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+        border-radius: 0.4rem;
+    }
+
+    .form-input {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+</style>
