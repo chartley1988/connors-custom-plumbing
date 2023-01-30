@@ -33,13 +33,29 @@ const { title } = Astro.props;
 </html>
 <style is:global>
 	:root {
-		--accent: 34, 190, 207;
+		--background: 255, 255, 255;
+		--font-color: 0, 0, 0;
+		--accent: 75, 178, 242;
 		--copper-accent: 160, 56, 24;
 		--accent-gradient: linear-gradient(
 			200deg,
 			rgb(var(--accent)) 5%,
-			white 40%
+			rgb(var(--background)) 40%
 		);
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root {
+		--background: 10, 17, 40;
+		--font-color: 254, 252, 251;
+		--accent: 75, 178, 242;
+		--copper-accent: 220, 116, 84;
+		--accent-gradient: linear-gradient(
+			200deg,
+			rgb(var(--accent), 0.6) 5%,
+			rgb(var(--background)) 60%
+		);
+	}
 	}
 
 	* {
@@ -48,11 +64,12 @@ const { title } = Astro.props;
 	}
 	
 	html {
-		width: 100vw;
 		font-family: 'Roboto', sans-serif;
+		color: rgb(var(--font-color))
 	}
 	
 	body {
+		background-color: rgb(var(--background));
 		display: grid;
 		grid-template-rows: auto 1fr auto;
 		min-height: 100vh;
