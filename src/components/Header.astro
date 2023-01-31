@@ -1,5 +1,6 @@
 ---
 import ContactBar from './ContactBar.astro';
+import MobileMenuButton from './MobileMenuButton.astro';
 import Nav from './Nav.astro';
 
 const { title } = Astro.props;
@@ -11,8 +12,23 @@ const { title } = Astro.props;
 	<Nav title={title} />
 	<div id="contact-bar">
 		<ContactBar />
+		<MobileMenuButton />
 	</div>
 </header>
+
+<script>
+	const mobileButton = document.getElementById('mobile-menu') as HTMLElement;
+	mobileButton.addEventListener('click', toggleMenu);
+
+	function toggleMenu() {
+		const nav = document.getElementById('mobile-nav') as HTMLElement;
+		if (nav.style.display === "block") {
+    		nav.style.display = "none";
+  		} else {
+    		nav.style.display = "block";
+  }
+	}
+</script>
 
 <style>
 	header {
@@ -34,6 +50,10 @@ const { title } = Astro.props;
 	#contact-bar {
 		grid-column: 3/4;
 		grid-row: 1/2;
+
+		display: flex;
+		flex-direction: row;
+		padding-right: 1rem;
 	}
 
 	h1 {
@@ -72,6 +92,11 @@ const { title } = Astro.props;
 	@media only screen and (max-width: 768px) {
 		h1 {
 			font-size: 2rem;
+		}
+
+		header {
+			background: none;
+			background-color: rgb(var(--background));
 		}
 	}
 
