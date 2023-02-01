@@ -4,6 +4,20 @@
     </svg>
 </button>
 
+<script>
+	const mobileButton = document.getElementById('mobile-menu') as HTMLElement;
+	mobileButton.addEventListener('click', toggleMenu);
+
+	function toggleMenu() {
+		const nav = document.getElementById('mobile-nav') as HTMLElement;
+		if (nav.style.display === "block") {
+    		nav.style.display = "none";
+  		} else {
+    		nav.style.display = "block";
+  }
+	}
+</script>
+
 <style>
     svg {
         width: 32px;
@@ -16,7 +30,7 @@
         border: none;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 769px) {
 		button {
             display: none;
         }

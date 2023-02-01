@@ -10,29 +10,15 @@ const { title } = Astro.props;
 	<h1 class='hide-mobile'><em>Connor's Custom Plumbing</em></h1>
 	<div class='logo'>CCM</div>
 	<Nav title={title} />
-	<div id="contact-bar">
+	<div id='contact-bar'>
 		<ContactBar />
 		<MobileMenuButton />
 	</div>
 </header>
 
-<script>
-	const mobileButton = document.getElementById('mobile-menu') as HTMLElement;
-	mobileButton.addEventListener('click', toggleMenu);
-
-	function toggleMenu() {
-		const nav = document.getElementById('mobile-nav') as HTMLElement;
-		if (nav.style.display === "block") {
-    		nav.style.display = "none";
-  		} else {
-    		nav.style.display = "block";
-  }
-	}
-</script>
-
 <style>
 	header {
-        min-width: 100%;
+		min-width: 100%;
 
 		border-bottom: 4px solid rgb(var(--accent));
 		box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
@@ -68,7 +54,7 @@ const { title } = Astro.props;
 	}
 
 	div.logo {
-        padding: 0.5rem;
+		padding: 0.5rem;
 		grid-column: 1/2;
 		grid-row: 1/2;
 
@@ -78,7 +64,7 @@ const { title } = Astro.props;
 		font-family: 'Comfortaa', sans-serif;
 	}
 
-	@media only screen and (min-width: 768px) {
+	@media only screen and (min-width: 769px) {
 		div.hide-mobile {
 			display: none;
 		}
@@ -91,7 +77,7 @@ const { title } = Astro.props;
 	}
 	@media only screen and (max-width: 768px) {
 		h1 {
-			font-size: 2rem;
+			font-size: 1rem;
 		}
 
 		header {
